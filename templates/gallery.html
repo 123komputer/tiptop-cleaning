@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="section mx-auto max-w-6xl px-4 mt-10">
+  <h1 class="text-4xl font-extrabold mb-4">Galeria realizacji</h1>
+  <p class="text-slate-600 mb-8">Przykładowe zdjęcia i nagrania z naszych prac.</p>
+
+  <!-- Zdjęcia -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    {% for fn in imgs %}
+    <a href="{{ url_for('static', filename='images/' ~ fn) }}"
+       class="block overflow-hidden rounded-xl border border-slate-200"
+       data-lightbox="gal" data-title="TipTop Cleaning – realizacja">
+      <img loading="lazy" src="{{ url_for('static', filename='images/' ~ fn) }}"
+           alt="Realizacja TipTop Cleaning"
+           class="w-full h-48 object-cover hover:scale-[1.02] transition">
+    </a>
+    {% endfor %}
+  </div>
+
+  <!-- Wideo -->
+  <h2 class="text-3xl font-bold mt-12 mb-4">Filmy</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    {% for v in vids %}
+    <video class="w-full rounded-2xl border border-slate-200 shadow"
+           src="{{ url_for('static', filename='images/' ~ v) }}" autoplay muted loop playsinline controls></video>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section mx-auto max-w-6xl px-4 mt-16 text-center">
+  <h2 class="text-2xl md:text-3xl font-extrabold mb-2">Podoba Ci się efekt?</h2>
+  <p class="text-slate-600 mb-4">Zamów bezpłatną wycenę — działamy w Bydgoszczy i okolicach.</p>
+  <a href="{{ url_for('index') }}#wycena" class="px-6 py-3 rounded-xl btn-primary">Bezpłatna wycena</a>
+</section>
+
+{% endblock %}

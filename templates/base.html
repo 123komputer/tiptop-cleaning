@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} – {{ site_name }}</title>
+
+  <!-- SEO -->
+  <meta name="description" content="TipTop Cleaning – sprzątanie domów i biur w Bydgoszczy i okolicach (Kujawsko-Pomorskie). Mówimy czysto – szybko, solidnie i w uczciwej cenie.">
+  <meta name="keywords" content="sprzątanie Bydgoszcz, mycie okien Bydgoszcz, sprzątanie biur, pranie tapicerki, Kujawsko-Pomorskie">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TipTop Cleaning – Mówimy czysto">
+  <meta property="og:description" content="Profesjonalne sprzątanie domów i biur w Bydgoszczy i okolicach. Mówimy czysto.">
+  <meta property="og:image" content="{{ url_for('static', filename='images/received_3086640494813632.jpeg', _external=True) }}">
+  <meta property="og:url" content="{{ request.url_root }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts + Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" sizes="any">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+  <style>
+    :root { --primary:#0ea5e9; --accent:#22c55e; }
+    html, body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { filter: brightness(0.95); }
+    .btn-accent { background: var(--accent); color: #fff; }
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.7); }
+    .section { scroll-margin-top: 96px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur shadow-sm">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center gap-3 md:gap-6">
+      <a href="/" class="flex items-center gap-2 group">
+        <picture>
+          <source srcset="{{ url_for('static', filename='logo-circle.svg') }}" type="image/svg+xml">
+          <img src="{{ url_for('static', filename='logo-circle.png') }}" alt="TipTop Cleaning – logo" class="h-9 w-9 rounded-full object-cover">
+        </picture>
+        <div class="flex flex-col leading-tight">
+          <span class="text-xl font-extrabold tracking-tight">{{ site_name }}</span>
+          <span class="text-xs font-medium text-slate-500 uppercase">Mówimy czysto</span>
+        </div>
+      </a>
+
+      <!-- NAV -->
+      <nav class="ml-auto hidden md:flex items-center gap-6 text-sm font-medium">
+        <!-- Dropdown: Usługi -->
+        <div class="relative group">
+          <button class="hover:text-slate-900 text-slate-600 flex items-center gap-1">
+            Usługi
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 hidden group-hover:block bg-white border border-slate-200 rounded-lg shadow-lg z-50 min-w-[200px] overflow-hidden">
+            <a href="{{ url_for('dla_firm') }}" class="block px-4 py-2 hover:bg-slate-100">Dla firm</a>
+            <a href="{{ url_for('dla_domu') }}" class="block px-4 py-2 hover:bg-slate-100">Dla domu</a>
+          </div>
+        </div>
+
+        <a href="{{ url_for('gallery') }}" class="hover:text-slate-900 text-slate-600">Galeria</a>
+        <a href="{{ url_for('index') }}#onas" class="hover:text-slate-900 text-slate-600">O nas</a>
+
+        <!-- Przyciski akcji po prawej -->
+        <a href="{{ url_for('index') }}#kontakt" class="px-4 py-2 rounded-xl btn-primary shadow">Kontakt</a>
+        <a href="{{ url_for('wycena') }}" class="ml-2 px-4 py-2 rounded-xl bg-sky-500 text-white hover:bg-sky-600 shadow">
+          Zarezerwuj sprzątanie
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer class="mt-20 border-t border-slate-200">
+    <div class="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <picture>
+            <source srcset="{{ url_for('static', filename='logo-circle.svg') }}" type="image/svg+xml">
+            <img src="{{ url_for('static', filename='logo-circle.png') }}" alt="TipTop Cleaning – logo" class="h-7 w-7 rounded-full object-cover">
+          </picture>
+          <strong>{{ site_name }}</strong>
+        </div>
+        <p class="text-slate-600">Sprzątamy jak dla siebie: dokładnie, punktualnie i z uśmiechem.</p>
+        <p class="text-slate-600 mt-2 italic">„Mówimy czysto”</p>
+      </div>
+      <div>
+        <strong class="block mb-3">Nawigacja</strong>
+        <ul class="space-y-2 text-slate-600">
+          <li><a href="{{ url_for('dla_firm') }}" class="hover:underline">Dla firm</a></li>
+          <li><a href="{{ url_for('dla_domu') }}" class="hover:underline">Dla domu</a></li>
+          <li><a href="{{ url_for('gallery') }}" class="hover:underline">Galeria</a></li>
+          <li><a href="{{ url_for('index') }}#kontakt" class="hover:underline">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong class="block mb-3">Kontakt</strong>
+        <ul class="space-y-2 text-slate-600">
+          <li>Telefon: <a href="tel:+48609004932" class="hover:underline">+48 123 456 789</a></li>
+          <li>Email: <a href="mailto:biuro@tiptopcleaning.pl" class="hover:underline">biuro@tiptopcleaning.pl</a></li>
+          <li>Obsługujemy: Bydgoszcz i okolice (Kujawsko-Pomorskie)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mx-auto max-w-6xl px-4 pb-10 text-xs text-slate-500">
+      © {{ year }} {{ site_name }}. Wszelkie prawa zastrzeżone.
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX (globalny) -->
+  <div id="lb" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
+    <button id="lb-close" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+    <img id="lb-img" class="max-h-[85vh] max-w-[90vw] rounded-xl shadow-2xl hidden" alt="">
+    <video id="lb-video" class="max-h-[85vh] max-w-[90vw] rounded-xl shadow-2xl hidden" controls></video>
+  </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/48609004932?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20zam%C3%B3wi%C4%87%20sprz%C4%85tanie%20(TipTop%20Cleaning)"
+     class="whatsapp-fab"
+     aria-label="Czat na WhatsApp"
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 32 32" class="w-6 h-6" fill="currentColor" aria-hidden="true">
+      <path d="M19.11 17.56a4.77 4.77 0 0 1-2.04-.56c-.62-.35-1.35-.86-2.18-1.69-.83-.83-1.34-1.56-1.69-2.18a4.77 4.77 0 0 1-.56-2.04c0-.45.26-.69.41-.79.14-.09.32-.12.52-.12h.37c.12 0 .28-.02.43.33.16.37.55 1.29.6 1.39.05.1.08.23.02.37-.06.14-.09.23-.18.36-.09.14-.19.31-.27.42-.09.1-.18.22-.08.4.09.19.41.67.89 1.15.62.62 1.15.9 1.34.99.19.09.31.08.42-.05.1-.12.48-.56.61-.75.14-.19.28-.16.46-.09.19.06 1.2.57 1.41.67.21.1.35.16.4.25.05.09.05.52-.12 1.02-.17.49-.98.96-1.29 1.03-.31.06-.7.09-1.02.09zM16 3C9.373 3 4 8.373 4 15c0 2.11.547 4.095 1.5 5.82L4 29l8.38-1.47A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3z"/>
+    </svg>
+    <span class="whatsapp-fab__label">Czat WhatsApp</span>
+  </a>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

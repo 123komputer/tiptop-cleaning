@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="section mx-auto max-w-4xl px-4 mt-12 text-center">
+  <h1 class="text-4xl md:text-5xl font-extrabold">Bezpłatna wycena</h1>
+  <p class="text-slate-600 mt-3">
+    Podaj podstawowe informacje – wrócimy z dopasowaną ofertą i terminem. Zwykle odpowiadamy w ciągu 24h.
+  </p>
+
+  <!-- Szybkie akcje -->
+  <div class="mt-6 flex items-center justify-center gap-3 flex-wrap">
+    <a href="https://wa.me/48609004932?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20zam%C3%B3wi%C4%87%20sprz%C4%85tanie%20(TipTop%20Cleaning)"
+       class="px-5 py-3 rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 shadow"
+       target="_blank" rel="noopener">
+      Czat WhatsApp – natychmiast
+    </a>
+    <a href="tel:+48609004932" class="px-5 py-3 rounded-xl btn-primary shadow">
+      Zadzwoń: +48&nbsp;123&nbsp;456&nbsp;789
+    </a>
+    <a href="mailto:biuro@tiptopcleaning.pl" class="px-5 py-3 rounded-xl bg-slate-800 text-white hover:bg-slate-900 shadow">
+      Napisz: biuro@tiptopcleaning.pl
+    </a>
+  </div>
+</section>
+
+<section class="section mx-auto max-w-6xl px-4 mt-12">
+  <div class="grid lg:grid-cols-2 gap-10">
+    <!-- Formularz -->
+    <div>
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow">
+        <h2 class="text-2xl font-bold">Formularz wyceny</h2>
+        <p class="text-slate-600 mt-1">Wybierz rodzaj usługi i opisz krótko zakres prac.</p>
+
+        <form id="kontakt-form" class="mt-6">
+          <!-- segment -->
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="flex items-center gap-2 rounded-xl border border-slate-300 p-3 cursor-pointer hover:bg-slate-50">
+              <input type="radio" name="segment" value="dom" class="accent-[color:var(--primary)]" checked>
+              <span>Usługa dla domu</span>
+            </label>
+            <label class="flex items-center gap-2 rounded-xl border border-slate-300 p-3 cursor-pointer hover:bg-slate-50">
+              <input type="radio" name="segment" value="firma" class="accent-[color:var(--primary)]">
+              <span>Usługa dla firmy</span>
+            </label>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4 mt-4">
+            <div>
+              <label class="text-sm text-slate-600">Imię i nazwisko / Osoba kontaktowa</label>
+              <input name="name" required class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-400 focus:ring-0"/>
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Email</label>
+              <input name="email" type="email" required class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-400 focus:ring-0"/>
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Telefon</label>
+              <input name="phone" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-400 focus:ring-0"/>
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Lokalizacja</label>
+              <input name="city" placeholder="np. Bydgoszcz" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-400 focus:ring-0"/>
+            </div>
+            <div class="md:col-span-2">
+              <label class="text-sm text-slate-600">Zakres / metraż</label>
+              <textarea name="details" rows="4" placeholder="np. biuro 220 m², 3× w tygodniu; lub: dom 120 m², okna raz w miesiącu" class="mt-1 w-full rounded-xl border-slate-300 focus:border-slate-400 focus:ring-0"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="mt-5 px-5 py-3 rounded-xl btn-primary">Wyślij zapytanie</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dane kontaktowe ładnie opisane -->
+    <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow">
+      <h2 class="text-2xl font-bold">Kontakt</h2>
+      <p class="text-slate-600 mt-1">Jesteśmy do Twojej dyspozycji – wybierz kanał, który lubisz.</p>
+
+      <dl class="mt-4 space-y-3 text-slate-700">
+        <div class="flex items-start gap-3">
+          <span class="mt-1">📞</span>
+          <div>
+            <dt class="font-semibold">Telefon</dt>
+            <dd><a href="tel:+48609004932" class="hover:underline">+48 123 456 789</a> <span class="text-slate-500">(Pon–Pt 8:00–18:00)</span></dd>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="mt-1">💬</span>
+          <div>
+            <dt class="font-semibold">WhatsApp (live chat)</dt>
+            <dd><a target="_blank" rel="noopener"
+                   href="https://wa.me/48609004932?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20zam%C3%B3wi%C4%87%20sprz%C4%85tanie%20(TipTop%20Cleaning)"
+                   class="text-emerald-600 hover:underline">Rozpocznij czat</a></dd>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="mt-1">✉️</span>
+          <div>
+            <dt class="font-semibold">Email</dt>
+            <dd><a href="mailto:biuro@tiptopcleaning.pl" class="hover:underline">biuro@tiptopcleaning.pl</a></dd>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="mt-1">📍</span>
+          <div>
+            <dt class="font-semibold">Obszar działania</dt>
+            <dd>Bydgoszcz i okolice (Kujawsko-Pomorskie)</dd>
+          </div>
+        </div>
+      </dl>
+
+      <div class="mt-6">
+        <iframe class="w-full h-64 rounded-xl border border-slate-200"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Bydgoszcz%2C%20kujawsko-pomorskie&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mini CTA -->
+<section class="section mx-auto max-w-6xl px-4 mt-16">
+  <div class="rounded-2xl p-8 md:p-12 text-center text-white cta-gradient">
+    <h2 class="text-3xl md:text-4xl font-extrabold">Gotowi na błysk?</h2>
+    <p class="mt-2 text-slate-100">Zostaw dane w formularzu lub napisz na WhatsApp – odpowiemy szybko.</p>
+    <div class="mt-6 flex items-center justify-center gap-3 flex-wrap">
+      <a href="https://wa.me/48609004932?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20zam%C3%B3wi%C4%87%20sprz%C4%85tanie%20(TipTop%20Cleaning)"
+         target="_blank" rel="noopener"
+         class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600">Czat WhatsApp</a>
+      <a href="tel:+48609004932" class="px-6 py-3 rounded-xl bg-white/15 hover:bg-white/20">Zadzwoń</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
