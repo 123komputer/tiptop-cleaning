@@ -121,3 +121,10 @@ def api_kontakt():
 
 if __name__ == "__main__":
     app.run(debug=True, host="127.0.0.1", port=int(os.getenv("PORT", 5000)))
+from flask import redirect, request
+
+@app.before_request
+def redirect_to_www():
+    host = request.host
+    if host == "tiptopcleaning.pl":
+        return redirect("https://www.tiptopcleaning.pl" + request.path, code=301)
